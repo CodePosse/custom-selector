@@ -1,0 +1,29 @@
+<ng-select [items]="dataset" [(ngModel)]="selectedItem" (change)="onChange($event)" bindLabel="name" bindValue="name"
+  [virtualScroll]="true" [clearable]="false">
+  <!-- Selected value -->
+  <ng-template ng-label-tmp let-item="item">
+    <img height="50" width="50" [src]="item.imageUrl" />
+    <div>
+      <div>{{ item.name }}</div>
+      <div style="display: flex;">
+        <span>{{ item.cityState }}</span>
+        <span>&nbsp;ID: {{ item.refNum }}</span>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Dropdown item -->
+  <ng-template ng-option-tmp let-item="item" let-index="index">
+    <div style="display: flex;align-items: center;">
+      <img height="50" width="50" [src]="item.imageUrl" />
+      <div style="display: flex;flex-flow: column;">
+        <span>{{ item.name }}</span>
+        <span style="color: gray;">{{ item.cityState }}</span>
+        <small style="color: gray;">
+          Ref: {{ item.refNum }} | ID: {{ item.refNum }}
+        </small>
+      </div>
+    </div>
+  </ng-template>
+
+</ng-select>
